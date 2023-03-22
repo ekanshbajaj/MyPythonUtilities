@@ -1,0 +1,32 @@
+# Author : Ekansh Bajaj
+
+import pandas as pd
+
+# Load the Excel file into a pandas dataframe
+df = pd.read_excel('example.xlsx')
+
+# Create an empty list to hold the modified rows
+new_rows = []
+
+# Iterate over the rows of the dataframe
+for i, row in df.iterrows():
+    # If this is the first row, add it to the list
+    if i == 0:
+        new_rows.append(row)
+        continue
+    
+    # Check if this row is the same as the previous row
+    prev_row = df.iloc[i-1]
+    if not row.equals(prev_row):
+        # If the row is different, add 5 rows with the previous row's contents to the list
+        for j in range(5):
+            new_rows.append(prev_row)
+    
+    # Add the current row to the list
+    new_rows.append(row)
+
+# Convert the list of rows back into a pandas dataframe
+new_df = pd.DataFrame(new_rows)
+
+# Save the modified dataframe to a new Excel file
+new_df.to_excel('modified123.xlsx', index=False)
