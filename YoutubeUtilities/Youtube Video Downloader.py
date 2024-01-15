@@ -55,7 +55,7 @@ def main():
     while True:
         # Ask the user to select a resolution or 'all' for all resolutions
         selected_resolution = input("Select the resolution (type 'all' for all resolutions, 'exit' or 'done' to quit): ")
-        if selected_resolution.lower() == 'exit'|'done':
+        if selected_resolution.lower() == 'exit' or selected_resolution.lower() == 'done':
             break
 
         if selected_resolution.lower() == 'all':
